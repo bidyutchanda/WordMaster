@@ -187,7 +187,6 @@ langcodes = { #langcodes dict
 }
 
 print("Hey there! I am the Word Master.\nI can tell you everything you want to know about the word that is bugging your mind.")
-print("Adding to that, I can also tell many things about a sentence. ADD HERE. \nAnd my developer is trying to make me smarter everyday.")
 print("So, welcome to my v1.0 on this fine day in "+datetime.now().strftime('%B')+".")
 
 word=raw_input("\nInput your word: ")
