@@ -198,38 +198,33 @@ choice=int(input("\nEnter your choice as a number:"))
 
 def langCode_to_lang(list,langName):
 	return [langCode for langCode,toLang in list.iteritems() if toLang == langName]
-	#finds the language code from the above dict if given the language name.
-	#langCode,toLang is one pair in the dict above. The list is iterated and langCode is returned if the toLang
-	#...in dict matches with user input langName.
+	
 
-
-toTB="" #forming one textblob
+toTB="" 
 toTB=TextBlob(word)
 toTB_lang=toTB.detect_language()
-print("\nThe language of the entered word is: "+langcodes[toTB_lang]) #finds out language code from the above dict.
+print("\nThe language of the entered word is: "+langcodes[toTB_lang]) 
 
-if choice==1: #user wants to know word meaning
+if choice==1: 
 	if toTB_lang!='en':
-		syns = wordnet.synsets(toTB.translate(to='en')) #If the word is not English, it is translated first.
+		syns = wordnet.synsets(toTB.translate(to='en')) 
 	else:
 		syns = wordnet.synsets(word)
 	print("\nThe most common meaning of '"+word+"' in English is:")
-	print(syns[0].definition()) #tells meaning via wordnet
+	print(syns[0].definition()) 
 
-elif choice==2: #user wants to translate
+elif choice==2: 
 	toLang=raw_input('Which language do you want the word to be translated in? ')
-	langCode=langCode_to_lang(langcodes,toLang) #calls the above written function
+	langCode=langCode_to_lang(langcodes,toLang) 
 	print("\n"+word+" translated into "+toLang+" is :")
-	print(toTB.translate(to=langCode[0])) #the foreign word is translated to langCode[0]; langCode is a list type var.
+	print(toTB.translate(to=langCode[0])) 
 
 
 
-toTB2=TextBlob(word) #forms another TextBlob for etymological tree
+toTB2=TextBlob(word) 
 toTB2_lang=toTB.detect_language()
 print("\n\nThe etymological root of '"+word+"' is as below:\n")
 if toTB2_lang!='en':
 	print(ety.tree(str(toTB2.translate(to='en'))))
-	#If foreign, the word is translated to English and then ety.tree is called.
-	#<textblob>.translate(...) does not return a String, so typecasted to string for ety.tree to work.
 else:
 	print (ety.tree(word))
