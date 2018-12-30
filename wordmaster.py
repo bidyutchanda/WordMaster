@@ -186,12 +186,13 @@ langcodes = { #langcodes dict
 	'zu': 'Zulu',
 }
 
-print("Hey there! I am the Word Master.\nI can tell you everything you want to know about the word that is bugging your mind.")
-print("So, welcome to my v1.0 on this fine day in "+datetime.now().strftime('%B')+".")
-
+print("Hey there! I am the Word Master.")
+print("I can tell you everything you want to know about the word that is bugging your mind.")
+print(f"So, welcome to my v1.0 on this fine day in {datetime.now().strftime('%B.')}")
 word=input("\nInput your word: ")
 
 print("\nYou can do the following things with your word.\n1.Know the meaning.\n2.Translate it to another language.\nThe etymological tree will be displayed in any case. ")
+print("")
 choice=int(input("\nEnter your choice as a number:"))
 
 
@@ -202,27 +203,27 @@ def langCode_to_lang(list,langName):
 toTB="" 
 toTB=TextBlob(word)
 toTB_lang=toTB.detect_language()
-print("\nThe language of the entered word is: "+langcodes[toTB_lang]) 
+print(f"\nThe language of the entered word is: {langcodes[toTB_lang]}")
 
 if choice==1: 
 	if toTB_lang!='en':
 		syns = wordnet.synsets(toTB.translate(to='en')) 
 	else:
 		syns = wordnet.synsets(word)
-	print("\nThe most common meaning of '"+word+"' in English is:")
+	print(f"The most common meaning of '{word}' in English is:")
 	print(syns[0].definition()) 
 
 elif choice==2: 
 	toLang=input('Which language do you want the word to be translated in? ')
 	langCode=langCode_to_lang(langcodes,toLang) 
-	print("\n"+word+" translated into "+toLang+" is :")
+	print(f"'{word}' translated into {toLang} is:")
 	print(toTB.translate(to=langCode[0])) 
 
 
 
 toTB2=TextBlob(word) 
 toTB2_lang=toTB.detect_language()
-print("\n\nThe etymological root of '"+word+"' is as below:\n")
+print(f"The etymological root of '{word}' is as below: \n")
 if toTB2_lang!='en':
 	print(ety.tree(str(toTB2.translate(to='en'))))
 else:
