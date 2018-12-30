@@ -5,16 +5,23 @@ import ety
 
 from langcodes import langcodes
 
-print("Hey there! I am the Word Master.")
-print("I can tell you everything you want to know about the word that is bugging your mind.")
-print(f"So, welcome to my v1.0 on this fine day in {datetime.now().strftime('%B.')}")
+print(
+	f"""Hey there! I am the Word Master.
+I can tell you everything you want to know about the word that is bugging your mind.
+So, welcome to my v1.0 on this fine day in {datetime.now().strftime('%B.')}
+	"""
+)
 
 word = str(input("\nInput your word: ")).lower()
 
-print("\nYou can do the following things with your word.")
-print("1. Know the meaning")
-print("2. Translate it to another language\n")
-print("(The etymological tree will be displayed in any case)")
+print(
+	f"""\nYou can do the following things with your word:
+1. Know the meaning
+2. Translate it to another language
+
+(The etymological tree will be displayed in any case)"""
+)
+
 
 choice = int(input("\nEnter your choice as a number: "))
 
