@@ -197,7 +197,7 @@ choice=int(input("\nEnter your choice as a number:"))
 
 
 def langCode_to_lang(list,langName):
-	return [langCode for langCode,toLang in list.iteritems() if toLang == langName]
+	return [langCode for langCode,toLang in list.items() if toLang == langName]
 	
 
 toTB="" 
