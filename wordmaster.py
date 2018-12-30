@@ -189,7 +189,7 @@ langcodes = { #langcodes dict
 print("Hey there! I am the Word Master.\nI can tell you everything you want to know about the word that is bugging your mind.")
 print("So, welcome to my v1.0 on this fine day in "+datetime.now().strftime('%B')+".")
 
-word=raw_input("\nInput your word: ")
+word=input("\nInput your word: ")
 
 print("\nYou can do the following things with your word.\n1.Know the meaning.\n2.Translate it to another language.\nThe etymological tree will be displayed in any case. ")
 choice=int(input("\nEnter your choice as a number:"))
@@ -213,7 +213,7 @@ if choice==1:
 	print(syns[0].definition()) 
 
 elif choice==2: 
-	toLang=raw_input('Which language do you want the word to be translated in? ')
+	toLang=input('Which language do you want the word to be translated in? ')
 	langCode=langCode_to_lang(langcodes,toLang) 
 	print("\n"+word+" translated into "+toLang+" is :")
 	print(toTB.translate(to=langCode[0])) 
