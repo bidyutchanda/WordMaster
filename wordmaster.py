@@ -2,7 +2,8 @@ from textblob import TextBlob
 from datetime import datetime
 from nltk.corpus import wordnet
 import ety
-
+import nltk
+nltk.download('wordnet')
 from langcodes import langcodes
 
 print(
